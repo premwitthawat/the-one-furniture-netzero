@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>THE ONE FURNITURE — Net Zero &amp; Green Profit</title>
 <meta name="description" content="แผนการจัดการคาร์บอนและ Green Profit ของ เดอะวัน ที่นอนโซฟา จำกัด สู่ Net Zero และผู้นำเฟอร์นิเจอร์สีเขียวภาคเหนือ">
+<link rel="icon" type="image/jpeg" href="assets/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -101,9 +102,9 @@ section{ padding:88px 0; }
 .header-inner{ display:flex; align-items:center; justify-content:space-between; height:76px; }
 .brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--forest-deep); }
 .brand-mark{
-  width:40px; height:40px; border-radius:50%; background:var(--forest-deep); color:var(--cream);
-  display:flex; align-items:center; justify-content:center;
-  font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:.02em;
+  width:40px; height:40px; border-radius:50%;
+  display:block; object-fit:cover;
+  flex-shrink:0;
 }
 .brand-text{ font-family:var(--font-display); font-weight:600; font-size:18px; letter-spacing:.01em; }
 .brand-text em{ font-style:normal; color:var(--bark-dark); }
@@ -301,7 +302,7 @@ footer{ background:var(--forest-deep); color:rgba(251,248,239,.75); padding:56px
 <header class="site-header" id="top">
   <div class="wrap header-inner">
     <a href="#top" class="brand">
-      <span class="brand-mark">TO</span>
+      <img class="brand-mark" src="assets/logo.jpg" alt="The One Furniture">
       <span class="brand-text">THE ONE <em>FURNITURE</em></span>
     </a>
     <nav class="main-nav" id="mainNav">
@@ -477,6 +478,7 @@ footer{ background:var(--forest-deep); color:rgba(251,248,239,.75); padding:56px
       <div>
         <div class="footer-brand">THE ONE FURNITURE</div>
         <p id="footerAddress">บริษัท เดอะวัน ที่นอนโซฟา จำกัด — ย่านช้างคลาน อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่</p>
+        <p id="footerTaxId"></p>
       </div>
       <div class="footer-col">
         <h5>ติดต่อ</h5>
@@ -492,7 +494,6 @@ footer{ background:var(--forest-deep); color:rgba(251,248,239,.75); padding:56px
     </div>
     <div class="footer-bottom">
       <span>© 2569 บริษัท เดอะวัน ที่นอนโซฟา จำกัด</span>
-      <span>จัดทำเพื่อประกอบวิชา 703796 หัวข้อเลือกสรรทางธุรกิจ · Ex-MBA มหาวิทยาลัยเชียงใหม่</span>
     </div>
   </div>
 </footer>
@@ -654,9 +655,10 @@ const SITE = {
 
   // ---------- ข้อมูลติดต่อ (แก้เป็นข้อมูลจริงของบริษัท) ----------
   contact: {
-    address: "บริษัท เดอะวัน ที่นอนโซฟา จำกัด — ย่านช้างคลาน อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่",
-    phone: "โทร: (ใส่เบอร์โทรศัพท์)",
-    email: "info@example.com",
+    address: "บริษัท เดอะวัน ที่นอนโซฟา จำกัด (สำนักงานใหญ่) — 229/1 ถ.มหิดล ต.ช้างคลาน อ.เมืองเชียงใหม่ จ.เชียงใหม่ 50100",
+    taxId: "เลขประจำตัวผู้เสียภาษีอากร 0 5055 62014 72 1",
+    phone: "โทร: 061-459-5546",
+    email: "theonefurniturecm@gmail.com",
   },
 };
 /* ================================================================================================
@@ -804,6 +806,7 @@ function renderDocuments(){
 // ---------- RENDER: footer contact ----------
 function renderContact(){
   document.getElementById("footerAddress").textContent = SITE.contact.address;
+  document.getElementById("footerTaxId").textContent = SITE.contact.taxId;
   document.getElementById("footerPhone").textContent = SITE.contact.phone;
   const email = document.getElementById("footerEmail");
   email.textContent = "อีเมล: " + SITE.contact.email;
