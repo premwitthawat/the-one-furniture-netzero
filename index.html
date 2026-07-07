@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE ONE FURNITURE — Net Zero &amp; Green Profit</title>
+<meta name="description" content="แผนการจัดการคาร์บอนและ Green Profit ของ เดอะวัน ที่นอนโซฟา จำกัด สู่ Net Zero และผู้นำเฟอร์นิเจอร์สีเขียวภาคเหนือ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   1. DESIGN TOKENS
+   ============================================================ */
+:root{
+  --forest: #24392B;
+  --forest-deep: #16241A;
+  --forest-light: #3A5940;
+  --sage: #8CA688;
+  --sage-pale: #DCE5D6;
+  --bark: #9C6B3E;
+  --bark-dark: #7A5230;
+  --linen: #EFE8D8;
+  --linen-deep: #E4DAC4;
+  --cream: #FBF8EF;
+  --charcoal: #22211C;
+  --charcoal-soft: #56534A;
+  --gold: #C9A050;
+  --white: #FFFFFF;
+  --danger: #9C4A3C;
+
+  --font-display: 'Noto Serif Thai', 'Noto Serif', serif;
+  --font-body: 'IBM Plex Sans Thai', 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --maxw: 1180px;
+  --radius: 4px;
+  --shadow-card: 0 1px 2px rgba(34,33,28,.06), 0 6px 20px rgba(34,33,28,.06);
+}
+
+/* ============================================================
+   2. RESET & BASE
+   ============================================================ */
+*,*::before,*::after{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  font-size:17px;
+  line-height:1.7;
+  color:var(--charcoal);
+  background:var(--linen);
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; line-height:1.25; margin:0 0 .5em; color:var(--forest-deep); }
+p{ margin:0 0 1em; }
+a{ color:inherit; }
+ul{ margin:0; padding:0; list-style:none; }
+button{ font-family:inherit; cursor:pointer; }
+:focus-visible{ outline:3px solid var(--gold); outline-offset:2px; }
+
+.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
+section{ padding:88px 0; }
+@media (max-width:720px){ section{ padding:56px 0; } .wrap{ padding:0 20px; } }
+
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--bark-dark); font-weight:500; margin-bottom:14px;
+}
+.eyebrow::before{ content:""; width:18px; height:1px; background:var(--bark); display:inline-block; }
+
+.section-head{ max-width:640px; margin-bottom:48px; }
+.section-head h2{ font-size:clamp(28px,3.4vw,38px); }
+.section-head p{ color:var(--charcoal-soft); font-size:17px; }
+
+.btn{
+  display:inline-flex; align-items:center; gap:10px;
+  padding:13px 26px; border-radius:2px; border:1px solid var(--forest-deep);
+  font-family:var(--font-body); font-weight:600; font-size:15px;
+  text-decoration:none; transition:background .18s ease, color .18s ease, transform .18s ease;
+}
+.btn-primary{ background:var(--forest-deep); color:var(--cream); }
+.btn-primary:hover{ background:var(--forest); transform:translateY(-1px); }
+.btn-ghost{ background:transparent; color:var(--cream); border-color:rgba(251,248,239,.5); }
+.btn-ghost:hover{ background:rgba(251,248,239,.12); }
+
+/* ============================================================
+   3. HEADER
+   ============================================================ */
+.site-header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(239,232,216,.92); backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(34,33,28,.08);
+}
+.header-inner{ display:flex; align-items:center; justify-content:space-between; height:76px; }
+.brand{ display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--forest-deep); }
+.brand-mark{
+  width:40px; height:40px; border-radius:50%; background:var(--forest-deep); color:var(--cream);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-weight:700; font-size:15px; letter-spacing:.02em;
+}
+.brand-text{ font-family:var(--font-display); font-weight:600; font-size:18px; letter-spacing:.01em; }
+.brand-text em{ font-style:normal; color:var(--bark-dark); }
+.main-nav{ display:flex; gap:34px; }
+.main-nav a{ font-size:14.5px; font-weight:500; text-decoration:none; color:var(--charcoal-soft); position:relative; padding:4px 0; }
+.main-nav a:hover{ color:var(--forest-deep); }
+.main-nav a::after{ content:""; position:absolute; left:0; right:0; bottom:-2px; height:2px; background:var(--bark); transform:scaleX(0); transition:transform .18s ease; }
+.main-nav a:hover::after{ transform:scaleX(1); }
+
+.nav-toggle{ display:none; flex-direction:column; gap:5px; background:none; border:none; padding:8px; }
+.nav-toggle span{ width:24px; height:2px; background:var(--forest-deep); display:block; }
+
+@media (max-width: 900px){
+  .main-nav{
+    position:absolute; top:76px; left:0; right:0; background:var(--cream);
+    flex-direction:column; gap:0; padding:8px 20px 18px; border-bottom:1px solid rgba(34,33,28,.08);
+    transform:translateY(-8px); opacity:0; pointer-events:none; transition:all .2s ease;
+  }
+  .main-nav.open{ transform:translateY(0); opacity:1; pointer-events:auto; }
+  .main-nav a{ padding:12px 0; border-bottom:1px solid rgba(34,33,28,.06); }
+  .nav-toggle{ display:flex; }
+}
+
+/* ============================================================
+   4. HERO
+   ============================================================ */
+.hero{
+  background:linear-gradient(160deg, var(--forest-deep) 0%, var(--forest) 62%, var(--forest-light) 100%);
+  color:var(--cream); padding:76px 0 64px; overflow:hidden;
+}
+.hero-inner{ display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; }
+@media (max-width:980px){ .hero-inner{ grid-template-columns:1fr; gap:48px; } }
+
+.hero-eyebrow{ font-family:var(--font-mono); font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--sage-pale); margin-bottom:18px; display:flex; align-items:center; gap:8px; }
+.hero-eyebrow::before{ content:""; width:18px; height:1px; background:var(--gold); }
+.hero h1{ color:var(--cream); font-size:clamp(32px,4.2vw,50px); line-height:1.2; margin-bottom:18px; }
+.hero h1 .hl{ color:var(--gold); font-style:italic; }
+.hero-lede{ font-size:18px; color:rgba(251,248,239,.86); max-width:520px; margin-bottom:30px; }
+.hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:44px; }
+
+.hero-specs{ display:flex; gap:34px; flex-wrap:wrap; border-top:1px solid rgba(251,248,239,.18); padding-top:26px; }
+.hero-spec .num{ font-family:var(--font-mono); font-size:26px; font-weight:600; color:var(--gold); display:block; }
+.hero-spec .lbl{ font-size:13.5px; color:rgba(251,248,239,.8); }
+
+/* mattress cross-section signature */
+.mattress-figure{ display:flex; gap:22px; align-items:center; }
+.mattress-svg{ width:56%; flex-shrink:0; filter:drop-shadow(0 18px 30px rgba(0,0,0,.28)); }
+.mattress-legend{ display:flex; flex-direction:column; gap:22px; }
+.mattress-legend li{ display:flex; gap:12px; align-items:flex-start; }
+.swatch{ width:13px; height:13px; border-radius:50%; margin-top:5px; flex-shrink:0; }
+.mattress-legend .phase{ font-family:var(--font-mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--sage-pale); display:block; }
+.mattress-legend .title{ font-family:var(--font-display); font-size:16.5px; font-weight:600; color:var(--cream); display:block; margin:2px 0 3px; }
+.mattress-legend .desc{ font-size:13.5px; color:rgba(251,248,239,.72); line-height:1.5; }
+
+@media (max-width:980px){
+  .mattress-figure{ flex-direction:column; align-items:stretch; }
+  .mattress-svg{ width:100%; max-width:360px; margin:0 auto; }
+  .mattress-legend{ flex-direction:row; flex-wrap:wrap; justify-content:center; text-align:left; }
+  .mattress-legend li{ width:100%; max-width:400px; }
+}
+@media (max-width:520px){ .hero-specs{ gap:22px; } }
+
+/* ============================================================
+   5. ABOUT + CUSTOMER MIX
+   ============================================================ */
+.about-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:64px; align-items:start; }
+@media (max-width:900px){ .about-grid{ grid-template-columns:1fr; gap:40px; } }
+.about-text p{ color:var(--charcoal-soft); }
+.about-facts{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:28px; }
+.about-fact{ border-top:2px solid var(--forest-deep); padding-top:10px; }
+.about-fact b{ display:block; font-family:var(--font-display); font-size:20px; color:var(--forest-deep); }
+.about-fact span{ font-size:13.5px; color:var(--charcoal-soft); }
+
+.mix-card{ background:var(--cream); border:1px solid rgba(34,33,28,.08); border-radius:var(--radius); padding:28px 26px; box-shadow:var(--shadow-card); }
+.mix-card h3{ font-size:17px; margin-bottom:4px; }
+.mix-card .sub{ font-size:13.5px; color:var(--charcoal-soft); margin-bottom:20px; }
+.mix-bar{ display:flex; height:38px; border-radius:3px; overflow:hidden; margin-bottom:18px; }
+.mix-bar span{ height:100%; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-size:12px; color:var(--cream); }
+.mix-legend{ display:flex; flex-direction:column; gap:11px; }
+.mix-legend li{ display:flex; align-items:center; gap:10px; font-size:14.5px; }
+.mix-legend .dot{ width:11px; height:11px; border-radius:50%; flex-shrink:0; }
+.mix-legend .pct{ margin-left:auto; font-family:var(--font-mono); font-weight:600; }
+.mix-note{ margin-top:18px; padding-top:16px; border-top:1px dashed rgba(34,33,28,.16); font-size:13.5px; color:var(--charcoal-soft); }
+
+/* ============================================================
+   6. MEASURES (accordion cards)
+   ============================================================ */
+.measures-section{ background:var(--cream); }
+.measure-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
+.measure-card{ background:var(--white); border:1px solid rgba(34,33,28,.09); border-radius:var(--radius); box-shadow:var(--shadow-card); overflow:hidden; }
+.measure-head{ width:100%; display:flex; align-items:center; gap:16px; padding:22px 22px; background:none; border:none; text-align:right; }
+.measure-icon{ width:44px; height:44px; border-radius:50%; background:var(--sage-pale); display:flex; align-items:center; justify-content:center; flex-shrink:0; color:var(--forest-deep); }
+.measure-head .htext{ flex:1; text-align:left; }
+.measure-head .htag{ font-family:var(--font-mono); font-size:11.5px; letter-spacing:.06em; color:var(--bark-dark); text-transform:uppercase; display:block; margin-bottom:3px; }
+.measure-head h3{ font-size:17px; margin:0; }
+.measure-chevron{ transition:transform .22s ease; color:var(--charcoal-soft); flex-shrink:0; }
+.measure-card.open .measure-chevron{ transform:rotate(180deg); }
+.measure-body{ max-height:0; overflow:hidden; transition:max-height .28s ease; }
+.measure-card.open .measure-body{ max-height:2400px; }
+.measure-body-inner{ padding:0 22px 22px; border-top:1px solid rgba(34,33,28,.07); }
+.measure-item{ padding:16px 0; border-bottom:1px solid rgba(34,33,28,.07); }
+.measure-item:last-child{ border-bottom:none; }
+.measure-item-top{ display:flex; justify-content:space-between; gap:10px; margin-bottom:6px; }
+.measure-item-top b{ font-size:14.5px; font-weight:600; }
+.status-tag{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:.04em; padding:2px 8px; border-radius:10px; white-space:nowrap; height:fit-content; }
+.status-planned{ background:#EFE1C8; color:#7A5230; }
+.status-progress{ background:#DCE5D6; color:#3A5940; }
+.status-done{ background:var(--forest-deep); color:var(--cream); }
+.measure-item-meta{ display:flex; flex-wrap:wrap; gap:6px 14px; font-size:12.5px; color:var(--charcoal-soft); }
+.measure-item-meta span b{ font-family:var(--font-mono); font-weight:500; color:var(--charcoal); }
+
+/* ============================================================
+   7. DATA / RESOURCES
+   ============================================================ */
+.data-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:24px; margin-bottom:24px; }
+@media (max-width:900px){ .data-grid{ grid-template-columns:1fr; } }
+.panel{ background:var(--cream); border:1px solid rgba(34,33,28,.08); border-radius:var(--radius); padding:26px; box-shadow:var(--shadow-card); }
+.panel h3{ font-size:16.5px; margin-bottom:2px; }
+.panel .sub{ font-size:13px; color:var(--charcoal-soft); margin-bottom:20px; }
+.elec-bars{ display:flex; align-items:flex-end; gap:18px; height:180px; padding-top:10px; }
+.elec-bar-col{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; }
+.elec-bar{ width:100%; max-width:56px; background:var(--forest); border-radius:3px 3px 0 0; position:relative; transition:background .2s; }
+.elec-bar.highlight{ background:var(--bark); }
+.elec-bar-val{ font-family:var(--font-mono); font-size:11px; margin-bottom:6px; color:var(--charcoal-soft); }
+.elec-bar-label{ font-size:12px; margin-top:8px; text-align:center; color:var(--charcoal-soft); }
+.elec-total{ margin-top:16px; padding-top:14px; border-top:1px dashed rgba(34,33,28,.16); font-size:13.5px; color:var(--charcoal-soft); }
+.elec-total b{ font-family:var(--font-mono); color:var(--forest-deep); font-size:15px; }
+
+.scope-cards{ display:flex; flex-direction:column; gap:14px; }
+.scope-card{ display:flex; gap:14px; }
+.scope-num{ font-family:var(--font-mono); font-size:12px; font-weight:600; color:var(--bark-dark); width:64px; flex-shrink:0; padding-top:2px; }
+.scope-card h4{ font-family:var(--font-body); font-size:14.5px; font-weight:600; margin:0 0 4px; }
+.scope-card p{ font-size:13.5px; color:var(--charcoal-soft); margin:0; }
+
+.waste-callout{ display:flex; gap:16px; align-items:flex-start; background:#FBF3E4; border:1px solid #E8D4AC; border-radius:var(--radius); padding:20px 22px; margin-top:24px; }
+.waste-callout b{ display:block; margin-bottom:4px; color:var(--bark-dark); }
+.waste-callout p{ margin:0; font-size:14px; color:var(--charcoal-soft); }
+
+/* ============================================================
+   8. ROADMAP
+   ============================================================ */
+.roadmap-section{ background:var(--forest-deep); color:var(--cream); }
+.roadmap-section .section-head h2{ color:var(--cream); }
+.roadmap-section .section-head p{ color:rgba(251,248,239,.72); }
+.roadmap-section .eyebrow{ color:var(--gold); }
+.roadmap-section .eyebrow::before{ background:var(--gold); }
+.roadmap-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:rgba(251,248,239,.14); border-radius:var(--radius); overflow:hidden; }
+@media (max-width:860px){ .roadmap-grid{ grid-template-columns:1fr; } }
+.roadmap-col{ background:var(--forest-deep); padding:30px 26px; }
+.roadmap-col:nth-child(2){ background:#1D3024; }
+.roadmap-col .phase-no{ font-family:var(--font-mono); font-size:12px; color:var(--gold); letter-spacing:.06em; }
+.roadmap-col h3{ color:var(--cream); font-size:21px; margin:6px 0 4px; }
+.roadmap-col .period{ font-size:13px; color:rgba(251,248,239,.6); margin-bottom:18px; }
+.roadmap-col .goal{ font-size:14.5px; color:rgba(251,248,239,.88); margin-bottom:18px; padding-bottom:18px; border-bottom:1px solid rgba(251,248,239,.14); }
+.roadmap-list li{ font-size:13.5px; color:rgba(251,248,239,.82); padding:8px 0 8px 18px; position:relative; }
+.roadmap-list li::before{ content:""; position:absolute; left:0; top:16px; width:6px; height:6px; border-radius:50%; background:var(--sage); }
+.roadmap-budget{ margin-top:16px; padding-top:16px; border-top:1px solid rgba(251,248,239,.14); font-size:12.5px; color:rgba(251,248,239,.6); }
+.roadmap-budget b{ display:block; font-family:var(--font-mono); font-size:15px; color:var(--gold); font-weight:600; }
+
+/* ============================================================
+   9. DOCUMENTS
+   ============================================================ */
+.doc-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:18px; margin-bottom:44px; }
+.doc-card{ display:flex; gap:14px; align-items:flex-start; background:var(--cream); border:1px solid rgba(34,33,28,.08); border-radius:var(--radius); padding:20px; text-decoration:none; color:var(--charcoal); transition:border-color .18s, transform .18s; }
+.doc-card:hover{ border-color:var(--bark); transform:translateY(-2px); }
+.doc-card .doc-icon{ color:var(--bark-dark); flex-shrink:0; margin-top:2px; }
+.doc-card h4{ font-family:var(--font-body); font-size:14.5px; font-weight:600; margin:0 0 3px; }
+.doc-card p{ font-size:12.5px; color:var(--charcoal-soft); margin:0; }
+.ref-list{ columns:2; gap:40px; }
+@media (max-width:700px){ .ref-list{ columns:1; } }
+.ref-list li{ font-size:13.5px; margin-bottom:10px; break-inside:avoid; }
+.ref-list a{ color:var(--charcoal-soft); text-decoration:underline; text-decoration-color:rgba(34,33,28,.25); text-underline-offset:3px; }
+.ref-list a:hover{ color:var(--bark-dark); }
+
+/* ============================================================
+   10. FOOTER
+   ============================================================ */
+footer{ background:var(--forest-deep); color:rgba(251,248,239,.75); padding:56px 0 28px; }
+.footer-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:40px; margin-bottom:40px; }
+@media (max-width:760px){ .footer-grid{ grid-template-columns:1fr; gap:32px; } }
+.footer-brand{ font-family:var(--font-display); color:var(--cream); font-size:19px; margin-bottom:10px; }
+.footer-col h5{ font-family:var(--font-mono); font-size:12px; letter-spacing:.07em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; }
+.footer-col p, .footer-col a{ font-size:13.5px; color:rgba(251,248,239,.72); text-decoration:none; display:block; margin-bottom:8px; }
+.footer-col a:hover{ color:var(--cream); }
+.footer-bottom{ border-top:1px solid rgba(251,248,239,.14); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px; color:rgba(251,248,239,.5); }
+
+.edit-badge{ position:fixed; bottom:16px; right:16px; background:var(--gold); color:var(--forest-deep); font-family:var(--font-mono); font-size:11.5px; padding:8px 14px; border-radius:20px; box-shadow:var(--shadow-card); z-index:60; text-decoration:none; }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER / NAV
+     ============================================================ -->
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">TO</span>
+      <span class="brand-text">THE ONE <em>FURNITURE</em></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="#about">เกี่ยวกับเรา</a>
+      <a href="#measures">แนวทางดำเนินงาน</a>
+      <a href="#data">ข้อมูลและสถิติ</a>
+      <a href="#roadmap">แผนยุทธศาสตร์</a>
+      <a href="#documents">เอกสาร</a>
+      <a href="#contact">ติดต่อ</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="hero-eyebrow">เฟอร์นิเจอร์ที่นอน · โซฟา · เชียงใหม่</div>
+      <h1>วางรากฐานวันนี้<br>เพื่อ<span class="hl">กำไรสีเขียว</span>วันหน้า</h1>
+      <p class="hero-lede">แผนการจัดการคาร์บอนและ Green Profit ของ เดอะวัน ที่นอนโซฟา จำกัด — เหมือนการขึ้นโครงที่นอนทีละชั้น เริ่มจากฐานที่มั่นคง สู่โครงสร้างใหม่ และอนาคตที่ยั่งยืน</p>
+      <div class="hero-ctas">
+        <a href="#measures" class="btn btn-primary">ดูแนวทางดำเนินงาน</a>
+        <a href="#documents" class="btn btn-ghost">ดาวน์โหลดรายงานฉบับเต็ม</a>
+      </div>
+      <div class="hero-specs" id="heroSpecs"><!-- populated by app.js --></div>
+    </div>
+
+    <div class="mattress-figure">
+      <svg class="mattress-svg" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ภาพประกอบชั้นของแผนงาน เปรียบเทียบกับโครงสร้างที่นอน 3 ชั้น">
+        <defs>
+          <clipPath id="mattressClip"><rect x="14" y="26" width="392" height="248" rx="30" ry="30"/></clipPath>
+          <pattern id="quiltPattern" width="34" height="34" patternUnits="userSpaceOnUse">
+            <path d="M0 17 L17 0 L34 17 L17 34 Z" fill="none" stroke="rgba(36,57,43,0.30)" stroke-width="1.4"/>
+          </pattern>
+        </defs>
+        <g clip-path="url(#mattressClip)">
+          <rect x="14" y="180" width="392" height="94" fill="#16241A"/>
+          <rect x="14" y="96" width="392" height="84" fill="#9C6B3E"/>
+          <rect x="14" y="26" width="392" height="70" fill="#8CA688"/>
+          <rect x="14" y="26" width="392" height="70" fill="url(#quiltPattern)"/>
+        </g>
+        <rect x="14" y="26" width="392" height="248" rx="30" ry="30" fill="none" stroke="#FBF8EF" stroke-opacity=".55" stroke-width="2"/>
+        <line x1="14" y1="96" x2="406" y2="96" stroke="#FBF8EF" stroke-opacity=".22" stroke-width="1.5"/>
+        <line x1="14" y1="180" x2="406" y2="180" stroke="#FBF8EF" stroke-opacity=".22" stroke-width="1.5"/>
+      </svg>
+      <ul class="mattress-legend">
+        <li><span class="swatch" style="background:#8CA688"></span>
+          <div><span class="phase">ชั้นบน · 2-5 ปี</span><span class="title">ระยะยาว</span><span class="desc">ผู้นำ Green Furniture ภาคเหนือ, T-VER</span></div>
+        </li>
+        <li><span class="swatch" style="background:#9C6B3E"></span>
+          <div><span class="phase">ชั้นกลาง · 6 เดือน-2 ปี</span><span class="title">ระยะกลาง</span><span class="desc">EV เฟสแรก, Solar นำร่อง, ใบรับรอง LESS</span></div>
+        </li>
+        <li><span class="swatch" style="background:#16241A"></span>
+          <div><span class="phase">ฐานราก · 0-6 เดือน</span><span class="title">ระยะสั้น</span><span class="desc">LED, คัดแยกขยะ, พฤติกรรมพนักงาน</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-text">
+      <div class="eyebrow">เกี่ยวกับเรา</div>
+      <h2>ธุรกิจเฟอร์นิเจอร์ ที่กำไรและความยั่งยืนอยู่ในโครงเดียวกัน</h2>
+      <p>บริษัท เดอะวัน ที่นอนโซฟา จำกัด (THE ONE FURNITURE) จำหน่ายที่นอน เตียงนอน โซฟา และเฟอร์นิเจอร์สำนักงาน ผ่านโชว์รูมและคลังสินค้า 4 สาขาในย่านช้างคลาน อำเภอเมืองเชียงใหม่ ให้บริการทั้งลูกค้าทั่วไป หน่วยงานราชการ และลูกค้าขายส่งทั่วภาคเหนือ</p>
+      <p>ฐานลูกค้าส่วนใหญ่ของเราเป็นหน่วยงานราชการและคู่ค้าขายส่งที่ให้ความสำคัญกับมาตรฐานสิ่งแวดล้อมมากขึ้นทุกปี เราจึงเริ่มวางแผนจัดการคาร์บอนอย่างเป็นระบบ — ไม่ใช่เพราะกฎหมายบังคับ แต่เพราะเป็นทางที่ธุรกิจจะเติบโตได้อย่างมั่นคงในระยะยาว</p>
+      <div class="about-facts" id="aboutFacts"><!-- populated by app.js --></div>
+    </div>
+
+    <div class="mix-card">
+      <h3>สัดส่วนยอดขายตามประเภทลูกค้า</h3>
+      <p class="sub">ข้อมูลจริง ยืนยันจากระบบขายของธุรกิจ</p>
+      <div class="mix-bar" id="mixBar"></div>
+      <ul class="mix-legend" id="mixLegend"></ul>
+      <p class="mix-note" id="mixNote"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MEASURES
+     ============================================================ -->
+<section id="measures" class="measures-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">แนวทางดำเนินงาน</div>
+      <h2>5 กลุ่มมาตรการ จาก 15+ ข้อปฏิบัติจริง</h2>
+      <p>ครอบคลุมตั้งแต่พลังงาน การขนส่ง ของเสีย พฤติกรรมพนักงาน ไปจนถึงโปรแกรมลูกค้าและการรับรองมาตรฐาน — แตะที่การ์ดเพื่อดูรายละเอียดแต่ละมาตรการ งบประมาณ และตัวชี้วัด</p>
+    </div>
+    <div class="measure-grid" id="measureGrid"><!-- populated by app.js --></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DATA / RESOURCES
+     ============================================================ -->
+<section id="data">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">ข้อมูลและสถิติ</div>
+      <h2>ฐานข้อมูลจริง ก่อนลงมือทำแผน</h2>
+      <p>ตัวเลขที่ยืนยันจากบิลจริงและข้อมูลปฏิบัติการ ใช้เป็นเส้นฐาน (Baseline) สำหรับวัดผลความสำเร็จของแผนทั้งหมด</p>
+    </div>
+    <div class="data-grid">
+      <div class="panel">
+        <h3>ค่าไฟฟ้ารายสาขา</h3>
+        <p class="sub">ข้อมูลจริงจากบิล รอบเดือนมิถุนายน 2569 (บาท)</p>
+        <div class="elec-bars" id="elecBars"></div>
+        <div class="elec-total" id="elecTotal"></div>
+      </div>
+      <div class="panel">
+        <h3>การปล่อยก๊าซเรือนกระจก (แบ่งตาม Scope)</h3>
+        <p class="sub">ตามมาตรฐาน GHG Protocol</p>
+        <div class="scope-cards" id="scopeCards"></div>
+      </div>
+    </div>
+    <div class="waste-callout">
+      <div>
+        <b>สถานะการจัดการของเสียในปัจจุบัน</b>
+        <p id="wasteNote"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ROADMAP
+     ============================================================ -->
+<section id="roadmap" class="roadmap-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">แผนยุทธศาสตร์ Net Zero</div>
+      <h2>ขึ้นโครงทีละชั้น เหมือนที่นอนที่ดี</h2>
+      <p>สามระยะ ตั้งแต่มาตรการต้นทุนต่ำที่เริ่มได้ทันที ไปจนถึงการลงทุนโครงสร้างพื้นฐานและการรับรองมาตรฐานระยะยาว</p>
+    </div>
+    <div class="roadmap-grid" id="roadmapGrid"><!-- populated by app.js --></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DOCUMENTS
+     ============================================================ -->
+<section id="documents">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">เอกสารเผยแพร่</div>
+      <h2>รายงานฉบับเต็มและแหล่งอ้างอิง</h2>
+    </div>
+    <div class="doc-grid" id="docGrid"></div>
+    <ul class="ref-list" id="refList"></ul>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">THE ONE FURNITURE</div>
+        <p id="footerAddress">บริษัท เดอะวัน ที่นอนโซฟา จำกัด — ย่านช้างคลาน อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่</p>
+      </div>
+      <div class="footer-col">
+        <h5>ติดต่อ</h5>
+        <p id="footerPhone">โทร: (ใส่เบอร์โทรศัพท์)</p>
+        <a id="footerEmail" href="#">อีเมล: (ใส่อีเมล)</a>
+      </div>
+      <div class="footer-col">
+        <h5>เมนู</h5>
+        <a href="#about">เกี่ยวกับเรา</a>
+        <a href="#measures">แนวทางดำเนินงาน</a>
+        <a href="#roadmap">แผนยุทธศาสตร์</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2569 บริษัท เดอะวัน ที่นอนโซฟา จำกัด</span>
+      <span>จัดทำเพื่อประกอบวิชา 703796 หัวข้อเลือกสรรทางธุรกิจ · Ex-MBA มหาวิทยาลัยเชียงใหม่</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ================================================================================================
+   ██  แก้ไขข้อมูลเว็บไซต์ตรงนี้ (EDIT WEBSITE CONTENT HERE)  ██
+   ================================================================================================
+   ทุกตัวเลข ทุกข้อความในเว็บไซต์นี้ ดึงมาจาก object ชื่อ SITE ด้านล่างนี้ทั้งหมด
+   ถ้าต้องการแก้ไข/เพิ่มข้อมูลภายหลัง ให้แก้ไขเฉพาะในส่วนนี้เท่านั้น ไม่ต้องแตะโค้ด HTML/CSS หรือฟังก์ชันด้านล่าง
+
+   วิธีแก้ไขที่ปลอดภัย:
+   - แก้ข้อความ/ตัวเลขในเครื่องหมายคำพูด "..." ได้อย่างอิสระ
+   - ถ้าจะเพิ่มรายการในลิสต์ (เช่น เพิ่มมาตรการใหม่ 1 ข้อ) ให้ copy ทั้งก้อน { ... } ของรายการที่ใกล้เคียงที่สุด
+     มาวางต่อท้าย แล้วแก้เนื้อหาข้างในทีหลัง อย่าลืมคอมม่า (,) คั่นระหว่างรายการ
+   - status ของมาตรการ มีให้เลือก 3 ค่า: "planned" (แผน) / "progress" (กำลังดำเนินการ) / "done" (เสร็จสิ้น)
+     พอทีมเริ่มลงมือทำจริง กลับมาแก้ค่านี้ให้ตรงสถานะล่าสุดได้เลย
+   ================================================================================================ */
+const SITE = {
+
+  // ---------- ข้อมูลบริษัท ----------
+  company: {
+    updated: "ข้อมูล ณ เดือนกรกฎาคม 2569",
+  },
+
+  // ---------- ตัวเลขเด่น แสดงใน Hero ----------
+  heroStats: [
+    { num: "4", label: "สาขา / โชว์รูม-คลังสินค้า" },
+    { num: "18", label: "คันรถขนส่งในกองรถ" },
+    { num: "73.18%", label: "ยอดขายจากราชการ+ขายส่ง" },
+    { num: "75.87", label: "ตัน CO2e/ปี (Scope 1 โดยประมาณ)" },
+  ],
+
+  // ---------- ข้อเท็จจริงย่อในส่วน "เกี่ยวกับเรา" ----------
+  aboutFacts: [
+    { big: "4 สาขา", small: "ตึกชมพู · โกดังแดง · ตึกสนุ๊ก · ตึกใหญ่" },
+    { big: "15-50 คน", small: "พนักงานรวมทุกสาขา" },
+    { big: "18 คัน", small: "รถ 4 ล้อ 15 + รถ 6 ล้อ 3" },
+    { big: "15+ มาตรการ", small: "อยู่ระหว่างวางแผนและเริ่มดำเนินการ" },
+  ],
+
+  // ---------- สัดส่วนยอดขายตามประเภทลูกค้า (ข้อมูลจริง) ----------
+  customerMix: [
+    { label: "ลูกค้าขายส่ง", pct: 48.78, color: "#24392B" },
+    { label: "หน่วยงานราชการ", pct: 24.40, color: "#9C6B3E" },
+    { label: "ลูกค้าทั่วไป", pct: 26.82, color: "#8CA688" },
+  ],
+  customerMixNote: "กลุ่มราชการและขายส่งรวมกัน 73.18% ของยอดขาย — มากกว่าที่เคยประเมินไว้ จึงเป็นเหตุผลหลักที่ธุรกิจให้ความสำคัญกับมาตรฐานสิ่งแวดล้อม โดยเฉพาะเกณฑ์จัดซื้อจัดจ้างสีเขียวภาครัฐซึ่งครอบคลุมหมวดผลิตภัณฑ์เฟอร์นิเจอร์โดยตรง",
+
+  // ---------- ค่าไฟฟ้ารายสาขา (ข้อมูลจริงจากบิล มิ.ย. 2569) ----------
+  electricity: {
+    branches: [
+      { name: "ตึกชมพู", baht: 232.68 },
+      { name: "โกดังแดง", baht: 5664.97 },
+      { name: "ตึกสนุ๊ก", baht: 10525.71, highlight: true },
+      { name: "ตึกใหญ่", baht: 3365.12 },
+    ],
+    totalNote: "รวม 19,788.48 บาท/เดือน — ตึกสนุ๊ก (สีน้ำตาล) ใช้ไฟสูงสุดและเพิ่มขึ้นก้าวกระโดดในเดือนล่าสุด จึงเป็นเป้าหมายแรกของ Solar Rooftop นำร่อง",
+  },
+
+  // ---------- การปล่อยก๊าซเรือนกระจก แบ่งตาม Scope ----------
+  scopes: [
+    { tag: "SCOPE 1", title: "การเผาไหม้ทางตรง", text: "เชื้อเพลิงดีเซลจากรถขนส่ง 18 คัน ประมาณ 27,683.24 ลิตร/ปี ≈ 75.87 ตัน CO2e/ปี (คำนวณจากค่าสัมประสิทธิ์ อบก. 2.7406 กก. CO2e/ลิตร)" },
+    { tag: "SCOPE 2", title: "ไฟฟ้าที่ซื้อใช้", text: "ไฟฟ้าจาก 4 สาขา รวม 19,788.48 บาท/เดือน (ข้อมูลจริง มิ.ย. 2569) ส่วนใหญ่มาจากแสงสว่างที่ยังไม่เปลี่ยนเป็น LED" },
+    { tag: "SCOPE 3", title: "ทางอ้อมอื่น ๆ", text: "วัสดุสินค้า (โฟม PU ผ้าบุ ไม้ สปริงเหล็ก) จากโรงงานผู้ผลิต บรรจุภัณฑ์ขาเข้า-ขาออก และของเสียจากการดำเนินงาน" },
+  ],
+
+  wasteNote: "ยังไม่มีระบบคัดแยกขยะอย่างเป็นทางการในทุกสาขา ขยะทั่วไปและเศษบรรจุภัณฑ์ถูกทิ้งรวมกันให้รถเทศบาลจัดเก็บ — เป็นมาตรการแรก ๆ ที่วางแผนเริ่มในระยะสั้น (ดูกลุ่ม C ในแนวทางดำเนินงาน)",
+
+  // ---------- 5 กลุ่มมาตรการ (A-E) ----------
+  // icon: "bulb" | "truck" | "recycle" | "people" | "badge"
+  measureCategories: [
+    {
+      id: "A", icon: "bulb", name: "พลังงานและไฟฟ้า",
+      summary: "LED เซ็นเซอร์ ช่องรับแสงธรรมชาติ และ Solar Rooftop นำร่อง",
+      items: [
+        { name: "LED + เซ็นเซอร์ + ตั้งเวลาไฟ 4 สาขา (เริ่มตึกสนุ๊ก)", goal: "ลดไฟแสงสว่าง 40-60%", timeline: "เดือน 1-4", budget: "~30,000-60,000 บาท", kpi: "ค่าไฟลด 1,500-4,000 บ./ด.", status: "planned" },
+        { name: "ปรับหลังคารับแสงธรรมชาติ (เน้นตึกสนุ๊ก)", goal: "ลดชั่วโมงเปิดไฟกลางวัน", timeline: "เดือน 4-8", budget: "~15,000-60,000 บาท", kpi: "ชม. เปิดไฟกลางวันลด", status: "planned" },
+        { name: "Solar Rooftop นำร่องตึกสนุ๊ก 15-20 kWp", goal: "ผลิตไฟใช้เอง ลดพึ่งพา กฟภ.", timeline: "ปีที่ 1-2", budget: "300,000-800,000 บาท (Capex แยก)", kpi: "คืนทุน 3-5 ปี", status: "planned" },
+      ],
+    },
+    {
+      id: "B", icon: "truck", name: "การขนส่งและเดินทาง",
+      summary: "Route optimization และทยอยเปลี่ยนกองรถ 18 คันเป็น EV",
+      items: [
+        { name: "Route Optimization กองรถ 18 คัน", goal: "ลดระยะทาง/เที่ยวซ้ำซ้อน", timeline: "เดือน 1-3", budget: "~0-10,000 บาท", kpi: "ใช้น้ำมันลด 10-15%", status: "planned" },
+        { name: "เปลี่ยนรถ 4 ล้อเป็น EV เฟสแรก 3-5 คัน", goal: "ลด Scope 1 เส้นทางในเมือง", timeline: "ปีที่ 1-2", budget: "2.25-5 ล้านบาท (Capex แยก)", kpi: "ลดตัน CO2e เทียบฐาน 75.87", status: "planned" },
+        { name: "เปลี่ยนรถที่เหลือเป็น EV ครบ 18 คัน", goal: "กองรถคาร์บอนต่ำเกือบเต็ม", timeline: "ปีที่ 2-5", budget: "งบระยะยาว ผูกรอบเปลี่ยนรถเดิม", kpi: "% กองรถ EV", status: "planned" },
+      ],
+    },
+    {
+      id: "C", icon: "recycle", name: "ของเสียและบรรจุภัณฑ์",
+      summary: "เริ่มระบบคัดแยกขยะ ลดพลาสติก และรับซื้อคืนสินค้าเก่า",
+      items: [
+        { name: "เริ่มระบบคัดแยกขยะ 4 สาขา", goal: "แยกทั่วไป/รีไซเคิลได้จริง", timeline: "เดือน 1-6", budget: "~10,000-20,000 บาท", kpi: "จุดคัดแยกครบ 4 สาขา", status: "planned" },
+        { name: "ปรับบรรจุภัณฑ์ลดพลาสติก", goal: "ลดพลาสติกใช้ครั้งเดียว", timeline: "เดือน 6-12", budget: "~20,000-40,000 บาท/ปี", kpi: "% ลดปริมาณพลาสติก", status: "planned" },
+        { name: "รับซื้อคืน/รีไซเคิลที่นอน-โซฟาเก่า", goal: "เจ้าแรกใน ชม. ที่ทำ Circular Economy", timeline: "ปีที่ 2-3", budget: "~100,000-200,000 บาท/ปี", kpi: "จำนวนชิ้นรับคืน/ปี", status: "planned" },
+      ],
+    },
+    {
+      id: "D", icon: "people", name: "พฤติกรรมพนักงานและสำนักงาน",
+      summary: "จุดเริ่มต้นต้นทุนต่ำ-ศูนย์ ที่ทำได้ทันทีเพื่อสร้างแรงส่ง",
+      items: [
+        { name: "กล่องข้าว + ถุงผ้า + กระติกน้ำ", goal: "เลิกพลาสติกใช้ครั้งเดียว", timeline: "เดือน 1-2", budget: "~15,000-25,000 บาท", kpi: "% พนักงานใช้อุปกรณ์ทดแทน", status: "planned" },
+        { name: "ยูนิฟอร์มผ้ารีไซเคิล", goal: "เปลี่ยนยูนิฟอร์มทั้งหมด", timeline: "เดือน 6-9", budget: "~30,000-60,000 บาท", kpi: "% พนักงานได้ยูนิฟอร์มใหม่", status: "planned" },
+        { name: "Sleep Mode คอมพิวเตอร์", goal: "ลดไฟ IT นอกเวลางาน", timeline: "เดือน 1", budget: "0 บาท", kpi: "เครื่องตั้งค่าแล้ว 100%", status: "planned" },
+      ],
+    },
+    {
+      id: "E", icon: "badge", name: "โปรแกรมลูกค้าและการรับรอง",
+      summary: "ส่วนลดลูกค้ารถ EV และการยื่นขอใบรับรอง LESS",
+      items: [
+        { name: "ส่วนลด 5% ลูกค้ารถ EV", goal: "ดึงลูกค้ากำลังซื้อสูง", timeline: "เดือน 6-8", budget: "แปรผันตามส่วนลดจริง", kpi: "ธุรกรรมที่ใช้สิทธิ์/เดือน", status: "planned" },
+        { name: "ระบบเก็บข้อมูลเชื้อเพลิง/ไฟฟ้า", goal: "ข้อมูลพร้อมคำนวณ LESS", timeline: "เดือน 1-6", budget: "~5,000-15,000 บาท", kpi: "มี Log ครบทุกเดือน", status: "planned" },
+        { name: "ยื่นขอใบรับรอง LESS", goal: "ได้ใบรับรองลดก๊าซเรือนกระจก", timeline: "ปีที่ 1-2", budget: "~20,000-50,000 บาท", kpi: "ได้ใบรับรอง ≥1 ฉบับ", status: "planned" },
+        { name: "Green Supply Chain กับโรงงาน", goal: "ลด Scope 3 จากวัตถุดิบ", timeline: "ปีที่ 2-5", budget: "ขึ้นกับเงื่อนไขเจรจา", kpi: "% วัตถุดิบคาร์บอนต่ำ", status: "planned" },
+      ],
+    },
+  ],
+
+  // ---------- แผนยุทธศาสตร์ 3 ระยะ ----------
+  roadmap: [
+    {
+      phase: "ระยะสั้น", period: "0-6 เดือน", no: "01",
+      goal: "ลดค่าไฟและของเสียด้วยมาตรการต้นทุนต่ำ-ศูนย์ พร้อมวางระบบเก็บข้อมูลให้พร้อมยื่น LESS",
+      items: ["กล่องข้าว/ถุงผ้า/กระติกน้ำ + Sleep Mode", "LED+เซ็นเซอร์+ตั้งเวลาไฟ เริ่มตึกสนุ๊ก", "เริ่มจุดคัดแยกขยะทุกสาขา", "Route Optimization กองรถ 18 คัน", "เริ่ม Log ข้อมูลน้ำมัน/ค่าไฟ"],
+      budget: "20,000-50,000 บาท",
+    },
+    {
+      phase: "ระยะกลาง", period: "6 เดือน - 2 ปี", no: "02",
+      goal: "เริ่มลงทุนโครงสร้างพื้นฐานหลัก (EV เฟสแรก + Solar นำร่อง) และยื่นขอรับรอง LESS ฉบับแรก",
+      items: ["เปลี่ยนรถ 4 ล้อเป็น EV ล็อตแรก 3-5 คัน", "ติดตั้ง Solar Rooftop นำร่องตึกสนุ๊ก", "ยูนิฟอร์มผ้ารีไซเคิล + บรรจุภัณฑ์ใหม่", "เริ่มส่วนลด 5% ลูกค้ารถ EV", "ยื่นขอใบรับรอง LESS ฉบับแรก"],
+      budget: "Capex แยก 2.55-5.8 ล้านบาท",
+    },
+    {
+      phase: "ระยะยาว", period: "2-5 ปี", no: "03",
+      goal: "ขยายผลเต็มรูปแบบ มุ่งสู่ผู้นำ Green Furniture ภาคเหนือ",
+      items: ["เปลี่ยนรถที่เหลือเป็น EV ครบ 18 คัน", "ขยาย Solar ไปสาขาอื่นตามเกณฑ์การใช้ไฟ", "Green Supply Chain กับโรงงานผู้ผลิต", "โครงการรับซื้อคืน/รีไซเคิลเต็มรูปแบบ", "พิจารณาขึ้นทะเบียน T-VER"],
+      budget: "งบลงทุนระยะยาว แยกตามแผนการเงิน",
+    },
+  ],
+
+  // ---------- เอกสารดาวน์โหลด ----------
+  // แก้ href เป็นลิงก์ไฟล์จริงเมื่ออัปโหลดรายงานขึ้นเว็บโฮสติ้งแล้ว
+  documents: [
+    { title: "รายงานฉบับเต็ม (.docx)", desc: "Sustainable & Green Profit from Net Zero and Carbon Management — 7 ส่วน", href: "#", icon: "download" },
+    { title: "สรุปแผนปฏิบัติการ", desc: "ตารางมาตรการ 15+ ข้อ พร้อมงบประมาณและ KPI", href: "#", icon: "download" },
+  ],
+
+  // ---------- แหล่งอ้างอิง ----------
+  references: [
+    { title: "อบก. — ค่าสัมประสิทธิ์การปล่อยก๊าซเรือนกระจก น้ำมันดีเซล", href: "https://www.senate.go.th/" },
+    { title: "ข่าวสด — ร่าง พ.ร.บ. การเปลี่ยนแปลงสภาพภูมิอากาศ", href: "https://www.thaipbs.or.th/news/content/355550" },
+    { title: "รัฐบาลไทย — มติ ครม. ภาษีคาร์บอน", href: "https://www.thaigov.go.th/" },
+    { title: "PTT Green Procurement — เกณฑ์ผลิตภัณฑ์เฟอร์นิเจอร์", href: "https://procurement.pttplc.com/webfiles/web/PDF/GreenProcument/PTTGreenProcurement.pdf" },
+    { title: "ราคาตลาดรถกระบะไฟฟ้าเชิงพาณิชย์ 2569", href: "https://mpepowernex.com/services/electric-pickup-truck/" },
+    { title: "ราคาติดตั้ง Solar Rooftop เชิงพาณิชย์ 2569", href: "https://www.sunnergytech.com/article/942/solar-installation-cost-2568-2569" },
+  ],
+
+  // ---------- ข้อมูลติดต่อ (แก้เป็นข้อมูลจริงของบริษัท) ----------
+  contact: {
+    address: "บริษัท เดอะวัน ที่นอนโซฟา จำกัด — ย่านช้างคลาน อำเภอเมืองเชียงใหม่ จังหวัดเชียงใหม่",
+    phone: "โทร: (ใส่เบอร์โทรศัพท์)",
+    email: "info@example.com",
+  },
+};
+/* ================================================================================================
+   จบส่วนข้อมูล — ด้านล่างนี้เป็นโค้ดแสดงผล ไม่จำเป็นต้องแก้ไข
+   ================================================================================================ */
+
+
+// ---------- ICON LIBRARY ----------
+const ICONS = {
+  bulb: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="10" r="6"/><path d="M9.5 21h5M12 16v5"/></svg>',
+  truck: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="8" width="11" height="8"/><path d="M13.5 11h4l3.5 3.2V16h-7.5z"/><circle cx="6.5" cy="18.2" r="1.7"/><circle cx="16.5" cy="18.2" r="1.7"/></svg>',
+  recycle: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 0 1 13.9-5.4M20 12a8 8 0 0 1-13.9 5.4"/><path d="M17 3v4h-4M7 21v-4h4"/></svg>',
+  people: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><path d="M3.5 20c0-3 2.5-5.2 5.5-5.2S14.5 17 14.5 20"/><circle cx="17" cy="9" r="2.4"/><path d="M14.8 20c.3-2.3 1.9-4 4.2-4 1 0 1.9.3 2.6.9"/></svg>',
+  badge: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9.5" r="5.2"/><path d="M8.5 13.8 7 21l5-2.4L17 21l-1.5-7.2"/></svg>',
+  download: '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v12m0 0-4-4m4 4 4-4M4 18v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2"/></svg>',
+};
+const STATUS_LABEL = { planned: "แผน", progress: "กำลังดำเนินการ", done: "เสร็จสิ้น" };
+
+function el(html){ const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+// ---------- RENDER: hero stats ----------
+function renderHeroStats(){
+  const wrap = document.getElementById("heroSpecs");
+  SITE.heroStats.forEach(s => {
+    wrap.appendChild(el(`<div class="hero-spec"><span class="num">${esc(s.num)}</span><span class="lbl">${esc(s.label)}</span></div>`));
+  });
+}
+
+// ---------- RENDER: about facts ----------
+function renderAboutFacts(){
+  const wrap = document.getElementById("aboutFacts");
+  SITE.aboutFacts.forEach(f => {
+    wrap.appendChild(el(`<div class="about-fact"><b>${esc(f.big)}</b><span>${esc(f.small)}</span></div>`));
+  });
+}
+
+// ---------- RENDER: customer mix bar + legend ----------
+function renderCustomerMix(){
+  const bar = document.getElementById("mixBar");
+  const legend = document.getElementById("mixLegend");
+  SITE.customerMix.forEach(m => {
+    bar.appendChild(el(`<span style="width:${m.pct}%;background:${m.color}">${m.pct}%</span>`));
+    legend.appendChild(el(`<li><span class="dot" style="background:${m.color}"></span>${esc(m.label)}<span class="pct">${m.pct}%</span></li>`));
+  });
+  document.getElementById("mixNote").textContent = SITE.customerMixNote;
+}
+
+// ---------- RENDER: electricity bars ----------
+function renderElectricity(){
+  const wrap = document.getElementById("elecBars");
+  const max = Math.max(...SITE.electricity.branches.map(b => b.baht));
+  SITE.electricity.branches.forEach(b => {
+    const h = Math.max(6, Math.round((b.baht / max) * 150));
+    wrap.appendChild(el(`
+      <div class="elec-bar-col">
+        <span class="elec-bar-val">${b.baht.toLocaleString("th-TH")}</span>
+        <div class="elec-bar${b.highlight ? " highlight" : ""}" style="height:${h}px"></div>
+        <span class="elec-bar-label">${esc(b.name)}</span>
+      </div>`));
+  });
+  document.getElementById("elecTotal").innerHTML = SITE.electricity.totalNote.replace(/19,788\.48 บาท\/เดือน/, "<b>19,788.48 บาท/เดือน</b>");
+}
+
+// ---------- RENDER: scope cards ----------
+function renderScopes(){
+  const wrap = document.getElementById("scopeCards");
+  SITE.scopes.forEach(s => {
+    wrap.appendChild(el(`<div class="scope-card"><div class="scope-num">${esc(s.tag)}</div><div><h4>${esc(s.title)}</h4><p>${esc(s.text)}</p></div></div>`));
+  });
+  document.getElementById("wasteNote").textContent = SITE.wasteNote;
+}
+
+// ---------- RENDER: measure cards (accordion) ----------
+function renderMeasures(){
+  const grid = document.getElementById("measureGrid");
+  SITE.measureCategories.forEach(cat => {
+    const itemsHtml = cat.items.map(it => `
+      <div class="measure-item">
+        <div class="measure-item-top">
+          <b>${esc(it.name)}</b>
+          <span class="status-tag status-${it.status}">${STATUS_LABEL[it.status] || it.status}</span>
+        </div>
+        <div class="measure-item-meta">
+          <span>เป้าหมาย: <b>${esc(it.goal)}</b></span>
+          <span>ระยะเวลา: <b>${esc(it.timeline)}</b></span>
+          <span>งบประมาณ: <b>${esc(it.budget)}</b></span>
+          <span>KPI: <b>${esc(it.kpi)}</b></span>
+        </div>
+      </div>`).join("");
+
+    const card = el(`
+      <div class="measure-card">
+        <button class="measure-head" aria-expanded="false">
+          <span class="measure-icon">${ICONS[cat.icon] || ""}</span>
+          <span class="htext"><span class="htag">กลุ่ม ${esc(cat.id)}</span><h3>${esc(cat.name)}</h3></span>
+          <span class="measure-chevron" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="measure-body"><div class="measure-body-inner">
+          <p style="color:var(--charcoal-soft);font-size:13.5px;margin:14px 0 6px">${esc(cat.summary)}</p>
+          ${itemsHtml}
+        </div></div>
+      </div>`);
+
+    card.querySelector(".measure-head").addEventListener("click", (e) => {
+      const isOpen = card.classList.toggle("open");
+      e.currentTarget.setAttribute("aria-expanded", String(isOpen));
+    });
+    grid.appendChild(card);
+  });
+}
+
+// ---------- RENDER: roadmap ----------
+function renderRoadmap(){
+  const grid = document.getElementById("roadmapGrid");
+  SITE.roadmap.forEach(r => {
+    grid.appendChild(el(`
+      <div class="roadmap-col">
+        <span class="phase-no">${esc(r.no)} / ${String(SITE.roadmap.length).padStart(2,"0")}</span>
+        <h3>${esc(r.phase)}</h3>
+        <div class="period">${esc(r.period)}</div>
+        <p class="goal">${esc(r.goal)}</p>
+        <ul class="roadmap-list">${r.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
+        <div class="roadmap-budget">งบประมาณ<b>${esc(r.budget)}</b></div>
+      </div>`));
+  });
+}
+
+// ---------- RENDER: documents + references ----------
+function renderDocuments(){
+  const grid = document.getElementById("docGrid");
+  SITE.documents.forEach(d => {
+    grid.appendChild(el(`
+      <a class="doc-card" href="${esc(d.href)}" target="_blank" rel="noopener">
+        <span class="doc-icon">${ICONS[d.icon] || ICONS.download}</span>
+        <span><h4>${esc(d.title)}</h4><p>${esc(d.desc)}</p></span>
+      </a>`));
+  });
+  const refs = document.getElementById("refList");
+  SITE.references.forEach(r => {
+    refs.appendChild(el(`<li><a href="${esc(r.href)}" target="_blank" rel="noopener">${esc(r.title)}</a></li>`));
+  });
+}
+
+// ---------- RENDER: footer contact ----------
+function renderContact(){
+  document.getElementById("footerAddress").textContent = SITE.contact.address;
+  document.getElementById("footerPhone").textContent = SITE.contact.phone;
+  const email = document.getElementById("footerEmail");
+  email.textContent = "อีเมล: " + SITE.contact.email;
+  email.href = "mailto:" + SITE.contact.email;
+}
+
+// ---------- NAV interactions ----------
+function initNav(){
+  const toggle = document.getElementById("navToggle");
+  const nav = document.getElementById("mainNav");
+  toggle.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(open));
+  });
+  nav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => {
+    nav.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+  }));
+}
+
+// ---------- INIT ----------
+document.addEventListener("DOMContentLoaded", () => {
+  renderHeroStats();
+  renderAboutFacts();
+  renderCustomerMix();
+  renderElectricity();
+  renderScopes();
+  renderMeasures();
+  renderRoadmap();
+  renderDocuments();
+  renderContact();
+  initNav();
+});
+</script>
+</body>
+</html>
